@@ -39,7 +39,7 @@ public class UserController {
                                                      PagedResourcesAssembler<User> pagedResourcesAssembler){
         return userService.getAllUsers(page, size, pagedResourcesAssembler);
     }
-
+    @Secured({ "ROLE_ADMIN", "ROLE_EXECUTIVE","ROLE_USER" })
     @GetMapping("/me")
     public ResponseEntity<UserModel> getUserDetails(Authentication authentication){
         return userService.getUser(authentication);
