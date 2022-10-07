@@ -32,7 +32,7 @@ public class UserController {
         return userService.saveUser(userSignUpRequest);
     }
 
-    @PreAuthorize("hasRole('ROLE_VIEWER') && hasRole('ROLE_EDITOR')")
+    @PreAuthorize("hasRole('ROLE_VIEWER') and hasRole('ROLE_EDITOR')")
     @GetMapping
     public ResponseEntity<PagedModel<?>> getAllUsers(@PositiveOrZero  @RequestParam(value="page", defaultValue = "0") int page,
                                                       @Positive @RequestParam(value="size", defaultValue = "20") int size,
